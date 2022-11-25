@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom'
 import {useState} from "react"
 // import { Button, ChakraProvider } from "@chakra-ui/react";
 
-import './index.css';
-// import Header from "./components/Header";
-import App from './App';
+// import './index.css';
+// // import Header from "./components/Header";
+// import App from './App';
 
 // function App() {
 //   // return (
@@ -39,6 +39,10 @@ import App from './App';
 // render(<App />, rootElement)
 
 
+
+
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root')
   );
@@ -50,3 +54,7 @@ const root = ReactDOM.createRoot(
   )
   
   root.render(app);
+
+
+
+

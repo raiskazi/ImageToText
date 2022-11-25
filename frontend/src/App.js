@@ -14,7 +14,6 @@ class App extends Component {
 	
 	// Update the state
 	this.setState({ selectedFile: event.target.files[0] });
-	
 	};
 	
 	// On file upload (click the upload button)
@@ -35,7 +34,12 @@ class App extends Component {
 	
 	// Request made to the backend api
 	// Send formData object
-	axios.post('http://localhost:8000/', formData);
+	const config = {
+		headers: {
+			'content-type': 'multipart/form-data'
+		}
+	}
+	axios.post('http://localhost:8000/api/uploadfile', formData, config);
 	};
 	
 	// File content to be displayed after
