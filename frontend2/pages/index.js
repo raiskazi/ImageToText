@@ -35,10 +35,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <br>
+      </br>
+      <h2>
+          Visit <u><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">Stable Diffusion</a></u> to create an AI-generated image
+      </h2>
+
+      <h4>
+        Preferably .png, .jpg, .jpeg
+      </h4>
+
       <main className={styles.main}>
         <h4 className={styles.title}>
           Upload Your AI-Generated Image
         </h4>
+
+        
 
         <input type="file" name="myImage" onChange={uploadToClient} />
         <br>

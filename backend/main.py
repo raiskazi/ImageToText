@@ -7,6 +7,9 @@ import io
 import os
 import requests
 from PIL import Image
+import cv2
+import numpy as np
+import pandas as pd
 
 app = FastAPI()
 
@@ -22,12 +25,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-def prediction():
+def prediction(file):
+    # image = cv2.imread(file.file)
+    image = np.array(Image.open(file.file))
+    print(image)
+    print(type(image))
+
     return 0
 
 @app.post("/api/upload")
 async def upload(file = File(...)):
     print(file.filename)
+
+    text = prediction(file)
     return {"filename": file.filename}
 
 
