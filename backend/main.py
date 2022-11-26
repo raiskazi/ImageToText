@@ -35,7 +35,7 @@ async def upload(file = File(...)):
 
 
 
-# REACT CODE BELOW
+# REACT BACKEND CODE BELOW
 
 # import uvicorn
 # from typing import Optional, List

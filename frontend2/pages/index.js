@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
-export default function App() {
+export default function Home() {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
 
@@ -29,24 +29,29 @@ export default function App() {
   return (
     // make a simple ui that lets you upload image and submit it as a form to backend
     <div>
-      <head>
-        <title>Upload Image</title>
+      <Head>
+        <title>Text to Image</title>
         <meta name="description" content="Upload Image" />
         <link rel="icon" href="/favicon.ico" />
-      </head>
+      </Head>
 
-      <main>
-        <h1>
-          Upload Image
-        </h1>
+      <main className={styles.main}>
+        <h4 className={styles.title}>
+          Upload Your AI-Generated Image
+        </h4>
 
         <input type="file" name="myImage" onChange={uploadToClient} />
+        <br>
+
+
+
+        </br>
         <button
           className="btn btn-primary"
           type="submit"
           onClick={uploadToServer}
         >
-          Send to server
+          Submit Image
         </button>
       </main>
     </div>
