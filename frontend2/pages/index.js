@@ -46,16 +46,12 @@ export default function Home() {
       </h4>
 
       <main className={styles.main}>
-        <h4 className={styles.title}>
+        <h1>
           Upload Your AI-Generated Image
-        </h4>
-
-        
+        </h1>
 
         <input type="file" name="myImage" onChange={uploadToClient} />
         <br>
-
-
 
         </br>
         <button

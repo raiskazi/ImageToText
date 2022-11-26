@@ -21,6 +21,8 @@ a {
   }
   body {
     color: white;
-    background: black;
+    /* background: black; */
+    /* background: #0504aa */
+    background: #242526
   }
 }
