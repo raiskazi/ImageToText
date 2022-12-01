@@ -35,42 +35,42 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <br>
-      </br>
-      <h2>
+      <br></br>
+
+      <h2 style={{paddingLeft : '10px'}}>
           Visit <u><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">Stable Diffusion</a></u> to create an AI-generated image
       </h2>
 
-      <h4>
+      <h4 style={{paddingLeft : '20px'}}>
       Image captioning is a very sensitive process. 
       Please submit realistic images which are composed of 1 object with 1 background (: 
       Preferably .png, .jpg, .jpeg
       </h4>
 
-      <h4>
-        List of possible objects:
-      </h4>
+      <div>
+        <h4 style={{paddingLeft : '30px'}}>
+          List of possible objects:
+        </h4>
 
 
-      <ul>
-        <li>Man</li>
-        <li>Woman</li>
-        <li>Dog</li>
-        <li>Cat</li>
-      </ul> 
+        <ul style={{paddingLeft : '60px'}}>
+          <li>Man</li>
+          <li>Woman</li>
+          <li>Dog</li>
+          <li>Cat</li>
+        </ul> 
 
-      <h4>
-        List of possible backgrounds:
-      </h4>
+        <h4 style={{paddingLeft : '30px'}}>
+          List of possible backgrounds:
+        </h4>
 
-      <ol>
-        <li>Park</li>
-        <li>Beach</li>
-        <li>Desert</li>
-        <li>Lake</li>
-      </ol> 
-
-      
+        <ul style={{paddingLeft : '60px'}}>
+          <li>Park</li>
+          <li>Beach</li>
+          <li>Desert</li>
+          <li>Lake</li>
+        </ul> 
+      </div>
 
 
       <main className={styles.main}>
@@ -79,9 +79,9 @@ export default function Home() {
         </h1>
 
         <input type="file" name="myImage" onChange={uploadToClient} />
-        <br>
 
-        </br>
+        <br></br>
+
         <button
           className="btn btn-primary"
           type="submit"
