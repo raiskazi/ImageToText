@@ -42,8 +42,36 @@ export default function Home() {
       </h2>
 
       <h4>
-        Preferably .png, .jpg, .jpeg
+      Image captioning is a very sensitive process. 
+      Please submit realistic images which are composed of 1 object with 1 background (: 
+      Preferably .png, .jpg, .jpeg
       </h4>
+
+      <h4>
+        List of possible objects:
+      </h4>
+
+
+      <ul>
+        <li>Man</li>
+        <li>Woman</li>
+        <li>Dog</li>
+        <li>Cat</li>
+      </ul> 
+
+      <h4>
+        List of possible backgrounds:
+      </h4>
+
+      <ol>
+        <li>Park</li>
+        <li>Beach</li>
+        <li>Desert</li>
+        <li>Lake</li>
+      </ol> 
+
+      
+
 
       <main className={styles.main}>
         <h1>
