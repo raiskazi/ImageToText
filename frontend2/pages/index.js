@@ -37,14 +37,18 @@ export default function Home() {
 
       <br></br>
 
+      <h1 style={{paddingLeft : '10px'}}>
+        Image to Text
+      </h1>
+
       <h2 style={{paddingLeft : '10px'}}>
           Visit <u><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">Stable Diffusion</a></u> to create an AI-generated image
       </h2>
 
       <h4 style={{paddingLeft : '20px'}}>
       Image captioning is a very sensitive process. 
-      Please submit realistic images which are composed of 1 object with 1 background (: 
-      Preferably .png, .jpg, .jpeg
+      Please submit realistic images (preferably .png, .jpg, .jpeg) which are composed of 1 object with 1 background (: 
+      
       </h4>
 
       <div>

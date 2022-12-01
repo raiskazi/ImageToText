@@ -10,6 +10,9 @@ from PIL import Image
 import cv2
 import numpy as np
 import pandas as pd
+import tensorflow as tf
+import einops
+import matplotlib as plt
 
 app = FastAPI()
 
@@ -25,6 +28,42 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def plot_attention_maps(image, str_tokens, attention_map):
+    fig = plt.figure(figsize=(16, 9))
+
+    len_result = len(str_tokens)
+    
+    titles = []
+    for i in range(len_result):
+      map = attention_map[i]
+      grid_size = max(int(np.ceil(len_result/2)), 2)
+      ax = fig.add_subplot(3, grid_size, i+1)
+      titles.append(ax.set_title(str_tokens[i]))
+      img = ax.imshow(image)
+      ax.imshow(map, cmap='gray', alpha=0.6, extent=img.get_extent(),
+                clim=[0.0, np.max(map)])
+
+    plt.tight_layout()
+
+
+def run_and_show_attention(model, image, temperature=0.0):
+  result_txt = model.simple_gen(image, temperature)
+  str_tokens = result_txt.split()
+  str_tokens.append('[END]')
+
+  attention_maps = [layer.last_attention_scores for layer in model.decoder_layers]
+  attention_maps = tf.concat(attention_maps, axis=0)
+  attention_maps = einops.reduce(
+      attention_maps,
+      'batch heads sequence (height width) -> sequence height width',
+      height=7, width=7,
+      reduction='mean')
+  
+  plot_attention_maps(image/255, str_tokens, attention_maps)
+  t = plt.suptitle(result_txt)
+  t.set_y(1.05)
+
+
 def prediction(file):
     # image = cv2.imread(file.file)
     image = np.array(Image.open(file.file))
@@ -33,12 +72,14 @@ def prediction(file):
 
     return 0
 
+
 @app.post("/api/upload")
 async def upload(file = File(...)):
     print(file.filename)
 
     text = prediction(file)
     return {"filename": file.filename}
+
 
 
 
