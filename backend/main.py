@@ -13,6 +13,7 @@ import pandas as pd
 import tensorflow as tf
 import einops
 import matplotlib as plt
+import pickle
 
 app = FastAPI()
 
@@ -66,9 +67,17 @@ def run_and_show_attention(model, image, temperature=0.0):
 
 def prediction(file):
     # image = cv2.imread(file.file)
+    # open image
     image = np.array(Image.open(file.file))
-    print(image)
+    # print(image)
     print(type(image))
+
+    # load .pkl file
+    with open('./model.pkl', 'rb') as f:
+        model = pickle.load(f)
+
+    print("MODEL")
+    print(model)
 
     return 0
 
