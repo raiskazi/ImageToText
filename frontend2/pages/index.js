@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [image, setImage] = useState(null);
+  const [caption, setCaption] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
 
   // post request
@@ -24,6 +25,9 @@ export default function Home() {
       method: "POST",
       body
     });
+    const caption_response = await response.json()
+    console.log(caption_response.caption);
+    setCaption(caption_response.caption);
   };
 
   return (
@@ -93,6 +97,7 @@ export default function Home() {
         >
           Submit Image
         </button>
+        <p>{caption}</p>
       </main>
     </div>
   )
