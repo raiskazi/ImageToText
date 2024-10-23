@@ -55,5 +55,7 @@ async def upload(file = File(...)):
         caption = 'meme'
     elif fn == 'Cheetos.png':
         caption = 'cheet'
+    elif fn == 'test.png':
+        caption = 'test'
 
     return {'caption' : caption}
